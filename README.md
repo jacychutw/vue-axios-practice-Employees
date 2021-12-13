@@ -20,4 +20,4 @@ json-sever --watch db.json
 npm run serve
 ```
 
-💡 &nbsp; Get the point? If no, try POST!
+💡 &nbsp; Get the point? If not, try POST!
