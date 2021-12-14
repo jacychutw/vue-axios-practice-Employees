@@ -59,7 +59,7 @@ export default {
         };
         DataService.editData(id,employeeData)
           .then(response => {
-            console.log('來了',response.data);
+            console.log(response.data);
             this.$emit("closeModal");
             location.reload();
           })
