@@ -27,19 +27,6 @@ export default {
   components: {
     InputForm,
     DataTable
-  },
-  // data () {
-  //   return {
-  //     updataEmp:[],
-  //   }
-  // },
-  // methods: {
-  //   refreshDataTable(employeeData) {
-  //     this.updataEmp = employeeData;
-  //     // console.log(employeeData)
-  //     // let num = this.employees.length;
-  //     // this.employees.push({id: (num+1), name: employeeData[0], phone: employeeData[1], profession: employeeData[2] })
-  //   }
-  // }
+  }
 }
 </script>

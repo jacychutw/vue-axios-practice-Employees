@@ -37,7 +37,6 @@
             cols="12"
             sm="3"
           >
-          <!-- <button>Send</button> -->
           <v-btn class="mt-3" @click="addEmployee">
             Send
           </v-btn>
@@ -62,30 +61,42 @@ export default {
   },
   data() {
     return {
+      id: 10,
       name: "",
       phone: "",
       profession: ""
     }
   },
+  created() {
+    DataService.getData()
+      //.get('http://localhost:3000/employees')
+      .then(response => {
+        this.id = response.data[response.data.length-1].id;
+        console.log(this.id);
+      })
+      .catch(error => {
+        console.log('There was an error:'+ error.response)
+      })
+  },
   methods: {
     addEmployee() {
+      let newID = this.id + 1;
       let employeeData= {
         // 使用到 vuex
-        "id": this.$store.state.employees.length + 1,
+        "id": newID,
         "name": this.name,
         "phone": this.phone,
         "profession": this.profession
       };
+      this.id = newID;
       DataService.addData(employeeData)
         .then(response => {
           console.log(response.data);
-          // 完成 post api 時，把整個頁面重新載入，更新 table
           location.reload();
         })
         .catch(error => {
           console.log('There was an error:'+ error.response)
         })
-
       this.name = "";
       this.phone = "";
       this.profession= "";
